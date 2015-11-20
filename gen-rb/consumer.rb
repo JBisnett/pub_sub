@@ -8,9 +8,10 @@ require_relative 'consumer_handler'
 require_relative 'broker_handler'
 
 begin
+	broker_host = 'localhost' || ARGV.shift
 	broker_port = 9090 || ARGV.shift
 
-	transport = Thrift::BufferedTransport.new(Thrift::Socket.new('localhost', broker_port))
+	transport = Thrift::BufferedTransport.new(Thrift::Socket.new(broker_host, broker_port))
 	protocol = Thrift::BinaryProtocol.new(transport)
 	client = Concord::PubSub::PubSubBroker::Client.new(protocol)
 
