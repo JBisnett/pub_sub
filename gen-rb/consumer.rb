@@ -16,7 +16,8 @@ begin
 	$local_host = nil
 	$local_port = nil
 	ARGF.readlines.each do |line|
-		if /\Abroker:\s?(\w*),\s?(\d*)/ =~ line
+		case line
+		when /\Abroker:\s?(\w*),\s?(\d*)/
 			transport.close if transport
 			$broker_host = $~[1]
 			$broker_port = $~[2].to_i
@@ -24,17 +25,19 @@ begin
 			protocol = Thrift::BinaryProtocol.new(transport)
 			$client = Concord::PubSub::PubSubBroker::Client.new(protocol)
 			transport.open()
-		elsif /\Alocal:\s?(\w*),\s?(\d*)/ =~ line
+		when /\Alocal:\s?(\w*),\s?(\d*)/
 			$local_host = $~[1]
 			$local_port = $~[2].to_i
-		elsif /\Asub,\s?(\w*)/ =~ line
+		when /\Asub,\s?(\w*)/
 			$client.subscribe $~[1], $local_host, $local_port
-		elsif /\Aunsub,\s?(\w*)/ =~ line
+		when /\Aunsub,\s?(\w*)/
 			$client.unsubscribe $~[1], $local_host, $local_port
-		elsif /\Apub,\s?(\w*),\s?(\w*)/ =~ line
+		when /\Apub,\s?(\w*),\s?(\w*)/
 			$client.publish $~[1], $~[2]
+		when /\A\s*\Z/
+			next
 		else
-			puts "Invalid Input"
+			puts "Invalid input: #{line}" 
 		end
 	end
 	transport.close if transport
