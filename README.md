@@ -8,7 +8,7 @@ Create a consumer listener using listener.rb.
 Port defaults to 9091 but can take in another as argument.
 
 Use consumer.rb to subscribe, unsubscribe, and publish.
-First command line arg is the host, second is the port (default to localhost, 9090).
+First command line arg is the broker host, second is the port (default to localhost, 9090).
 Following command line args are files to read instructions from.
 Can also enter them through stdin.
 
