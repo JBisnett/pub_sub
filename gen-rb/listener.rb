@@ -26,9 +26,10 @@ puts "Writing to host #{$broker_host} at port #{$broker_port}"
 transport = Thrift::BufferedTransport.new(Thrift::Socket.new($broker_host, $broker_port))
 protocol = Thrift::BinaryProtocol.new(transport)
 $client = Concord::PubSub::PubSubBroker::Client.new(protocol)
-transport.open
+
 
 STDIN.each_line do |line|
+  transport.open
 	case line
 	when /\Asubscribe\s(\w*)/
 		$client.subscribe $~[1], $listen_host, $listen_port
@@ -39,7 +40,8 @@ STDIN.each_line do |line|
 	else
 		puts "Invalid input: #{line}"
 	end
+  transport.close
 end
 
-transport.close
+
 puts "over"
