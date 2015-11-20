@@ -1,9 +1,0 @@
-broker:localhost, 9090
-local:localhost, 9091
-sub,animal
-sub,plant
-pub,animal,bear
-pub,animal,butterfly
-pub,plant, tree
-unsub,animal
-pub,animal,unicorn
