@@ -7,7 +7,7 @@ require_relative 'pub_sub_broker'
 require_relative 'consumer_handler'
 require_relative 'broker_handler'
 
-begin
+# begin
 	#read possible input
 	transport = nil
 	$client = nil
@@ -37,11 +37,11 @@ begin
 		when /\A\s*\Z/
 			next
 		else
-			puts "Invalid input: #{line}" 
+			puts "Invalid input: #{line}"
 		end
 	end
 	transport.close if transport
-
-rescue
-	puts $!, $!.message
-end
+#
+# rescue
+# 	puts $!, $!.message
+# end
