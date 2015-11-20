@@ -20,4 +20,4 @@ unsub, topic, host, port
 
 pub, topic, message
 
-here host and port are the host and port of the listener, so that the messages may be recieved
+Here host and port are the host and port of the listener, so that the messages may be received
