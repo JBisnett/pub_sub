@@ -1,23 +1,24 @@
 # pub_sub
 A simple pub sub implementation using Thrift and Ruby
 
-Create a broker using broker.rb.
+Create a broker using
+
+  broker.rb broker_port
+
 Port defaults to 9090 but can take in another as argument.
 
-Create a consumer listener using listener.rb.
-Port defaults to 9091 but can take in another as argument.
+Create a consumer using the command
 
-Use consumer.rb to subscribe, unsubscribe, and publish.
-First command line arg is the broker host, second is the port (default to localhost, 9090).
-Following command line args are files to read instructions from.
-Can also enter them through stdin.
+  listener.rb listen_port listen_host broker_port broker_host
 
-Instruction format is csv with newline between instructions
+Type in
 
-sub, topic, host, port
+  subscribe topic
 
-unsub, topic, host, port
+  unsubcribe topic
 
-pub, topic, message
+  publish topic message
 
-Here host and port are the host and port of the listener, so that the messages may be received
+To perform the operations for a topic or message.
+
+EOF to stop listening.

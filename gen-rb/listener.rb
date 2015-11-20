@@ -35,7 +35,7 @@ STDIN.each_line do |line|
 		$client.subscribe $~[1], $listen_host, $listen_port
 	when /\Aunsubscribe\s(\w*)/
 		$client.unsubscribe $~[1], $listen_host, $listen_port
-	when /\Apublish\s(\w*),\s?(\w*)/
+	when /\Apublish\s(\w*)\s(\w*)/
 		$client.publish $~[1], $~[2]
 	else
 		puts "Invalid input: #{line}"
