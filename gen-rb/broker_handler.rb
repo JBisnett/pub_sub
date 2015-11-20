@@ -17,7 +17,8 @@ class BrokerHandler
   end
   # remove host and port from a topic
   def unsubscribe(topic, host, port)
-    @topic_hash[topic].delete [host,port]
+    puts @topic_hash[topic].map{|n|n}
+    @topic_hash[topic].delete [host, port]
     puts "#{host}: #{port} unsubscribes from #{topic}"
   end
   # sends the topic and message to each subscriber
@@ -32,6 +33,7 @@ class BrokerHandler
     	transport.open()
     	client.receive topic,message
     	transport.close()
+      puts "publish to #{arr}"
     end
   end
 end
