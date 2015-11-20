@@ -13,6 +13,11 @@ Following command line args are files to read instructions from.
 Can also enter them through stdin.
 
 Instruction format is csv with newline between instructions
+
 sub, topic, host, port
+
 unsub, topic, host, port
-pub, topic, host, port
+
+pub, topic, message
+
+here host and port are the host and port of the listener, so that the messages may be recieved
