@@ -1,7 +1,9 @@
-sub,animal,localhost,9091
-sub,plant,localhost,9091
-publish,animal,bear
-publish,animal,butterfly
-publish,plant,tree
-unsub,animal,localhost,9091
-publish,animal,unicorn
+broker:localhost, 9090
+local:localhost, 9091
+sub,animal
+sub,plant
+pub,animal,bear
+pub,animal,butterfly
+pub,plant
+unsub,animal
+pub,animal,unicorn
