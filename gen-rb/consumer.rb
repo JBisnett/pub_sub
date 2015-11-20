@@ -18,11 +18,11 @@ begin
 	transport.open()
 
 	ARGF.readlines.each do |line|
-		if /sub,\s(\w*),\s(\w*),\s(\d*)/ =~ line
+		if /sub,\s?(\w*),\s?(\w*),\s?(\d*)/ =~ line
 			client.subscribe $~[1], $~[2], $~[3].to_i
-		elsif /unsub,\s(\w*),\s(\w*),\s(\d*)/ =~ line
+		elsif /unsub,\s?(\w*),\s?(\w*),\s?(\d*)/ =~ line
 			client.unsubscribe $~[1], $~[2], $~[3].to_i
-		elsif /pub,\s(\w*),\s(\w*)/ =~ line
+		elsif /pub,\s?(\w*),\s?(\w*)/ =~ line
 			client.publish $~[1], $~[2]
 		else
 			puts "Invalid Input"
