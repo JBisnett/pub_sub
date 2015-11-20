@@ -1,6 +1,6 @@
 class ConsumerHandler
   def initialize()
-    # nothing
+    # unused
   end
   def receive topic, message
 		puts "#{topic}: #{message}"

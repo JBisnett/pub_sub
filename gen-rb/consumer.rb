@@ -17,6 +17,7 @@ begin
 
 	transport.open()
 
+	#read possible input
 	ARGF.readlines.each do |line|
 		if /sub,\s?(\w*),\s?(\w*),\s?(\d*)/ =~ line
 			client.subscribe $~[1], $~[2], $~[3].to_i

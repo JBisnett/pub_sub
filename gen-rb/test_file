@@ -1,0 +1,7 @@
+sub,animal,localhost,9091
+sub,plant,localhost,9091
+publish,animal,bear
+publish,animal,butterfly
+publish,plant,tree
+unsub,animal,localhost,9091
+publish,animal,unicorn
