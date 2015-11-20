@@ -21,4 +21,4 @@ Type in
 
 To perform the operations for a topic or message.
 
-EOF to stop listening.
+EOF (cntr-D) to stop listening.
